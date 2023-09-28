@@ -1,6 +1,7 @@
 //Express basado en clases
 const express = require("express");
 const cors = require("cors");
+const { dbConnetion } = require("../database/config");
 
 class Server {
   constructor() {
@@ -8,12 +9,16 @@ class Server {
     this.port = process.env.PORT;
     this.routerPath = "/api/usuarios";
 
+    //Conectar con la base de datos
+    this.conectarDB();
     //Middlewares
     this.middlewares();
     //rutas de mi aplicacion
     this.routes();
-    //¿por que no lo coloca en el constructor?
-    //this.listen();
+  }
+
+  async conectarDB() {
+    await dbConnetion();
   }
 
   middlewares() {
