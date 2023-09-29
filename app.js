@@ -2,10 +2,6 @@
 require("dotenv").config();
 const Server = require("./models/server");
 
-
-const ip = require("ip");
-console.log(ip.address());
-
 //const express = require("express");
 //const app = express();
 
